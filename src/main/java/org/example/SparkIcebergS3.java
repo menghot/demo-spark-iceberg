@@ -19,8 +19,8 @@ public class SparkIcebergS3 {
                 .appName(SparkIcebergS3.class.getName())
                 .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
                 .config("spark.hadoop.fs.s3a.endpoint", "http://10.194.188.93:9020")
-                .config("spark.hadoop.fs.s3a.access.key", "DQJY94XTHA4AB96RKX00")
-                .config("spark.hadoop.fs.s3a.secret.key", "JBjl27Rnuz8H70x2SCQ7BBFdwIr70WgEBK959+GP")
+                .config("spark.hadoop.fs.s3a.access.key", "TYW3UOXM1ZEE1T8PURL8")
+                .config("spark.hadoop.fs.s3a.secret.key", "9ABGTIE8qp7nIIrhPehtkAJ2ZUiLVhioJazrpRrI")
 
                 .config("spark.sql.catalog.spark_catalog", "org.apache.iceberg.spark.SparkSessionCatalog")
                 .config("spark.sql.catalog.spark_catalog.type", "hadoop")
