@@ -29,8 +29,6 @@ public class SparkIcebergS3 {
 
                 .getOrCreate();
 
-//        spark.sql.catalog.spark_catalog.hadoop.fs.s3a.endpoint = http://aws-local:9000
-
         // Create a sample DataFrame
         List<Row> data = Arrays.asList(
                 RowFactory.create(1, "John"),

@@ -17,9 +17,8 @@ public class SparkIcebergHiveMetadata {
                 .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions")
                 .config("spark.sql.catalog.ic.uri", "thrift://10.194.186.216:9083")
                 .enableHiveSupport()
-//                .master("local")
+                .master("local")
                 .getOrCreate();
-
 
         Dataset<Row> rows = spark.sql("SELECT * FROM ic.simon.ice_person_20w3 limit 10");
         rows.show();

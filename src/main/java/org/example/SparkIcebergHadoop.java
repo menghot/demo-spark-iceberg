@@ -14,18 +14,16 @@ import java.util.List;
 
 public class SparkIcebergHadoop {
 
-    public static void main(String[] args) {
 
-
-        /*
+    /* Add jvm args for local develop testing
 -Dspark.master=local
 -Dspark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkCatalog
 -Dspark.sql.catalog.spark_catalog.type=hadoop
 -Dspark.sql.catalog.spark_catalog.warehouse=hdfs://node-10-194-186-216:8020/user/hive/warehouse
-        */
+    */
 
-        //Command to summit spark job
-    /*
+
+    /* Command to summit spark job
 spark-submit --master spark://10.194.188.93:7077 \
 --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkCatalog \
 --conf spark.sql.catalog.spark_catalog.type=hadoop \
@@ -45,31 +43,9 @@ spark-submit --master spark://10.194.188.93:7077 \
 --executor-memory 1g --executor-cores 1 \
 --class org.example.SparkIcebergHadoop \
 hdfs://10.194.186.216:8020/tmp/demo-spark-iceberg-1.0-SNAPSHOT.jar
-
-spark-submit --master spark://10.194.188.93:7077 \
---conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkCatalog \
---conf spark.sql.catalog.spark_catalog.type=hadoop \
---conf spark.sql.catalog.spark_catalog.warehouse=hdfs://node-10-194-186-216:8020/user/hive/warehouse \
---deploy-mode cluster \
---driver-memory 1g \
---executor-memory 1g --executor-cores 1 \
---class org.example.SparkIcebergHadoop \
---conf spark.hadoop.fs.s3a.iceberg.access.key=DQJY94XTHA4AB96RKX00 \
---conf spark.hadoop.fs.s3a.iceberg.secret.key=JBjl27Rnuz8H70x2SCQ7BBFdwIr70WgEBK959+GP \
---conf spark.driver.AWS_ACCESS_KEY_ID=DQJY94XTHA4AB96RKX00 \
---conf spark.driver.AWS_SECRET_KEY=JBjl27Rnuz8H70x2SCQ7BBFdwIr70WgEBK959+GP \
---conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
---conf spark.hadoop.fs.s3a.aws.credentials.provider=com.amazonaws.auth.EnvironmentVariableCredentialsProvider \
-s3a://10.194.188.93:9020/iceberg/demo-spark-iceberg-1.0-SNAPSHOT.jar
-
-
-spark.hadoop.fs.s3a.bucket.my-bucket.access.key
-spark.hadoop.fs.s3a.bucket.my-bucket.secret.key
---conf spark.hadoop.fs.s3a.aws.credentials.provider=com.amazonaws.auth.ContainerCredentialsProvider
-
     */
 
-        // hdfs://10.194.186.216:8020/tmp/demo-spark-iceberg-1.0-SNAPSHOT.jar
+    public static void main(String[] args) {
 
         SparkSession spark = SparkSession.builder()
                 .appName(SparkIcebergHadoop.class.getName())
